@@ -81,9 +81,8 @@ public class StartFrame extends javax.swing.JFrame
     }
     
     public void setIcon(){
-        //ImageIcon ico = new ImageIcon(".//res//icon//favicon.ico");
-        //ImageIcon ico = new ImageIcon(getClass().getClassLoader().getResource("favicon.ico"));
-        
+        ImageIcon img = new ImageIcon("./res/icon/favicon.png");
+        this.setIconImage(img.getImage());
     }
 
     /**
