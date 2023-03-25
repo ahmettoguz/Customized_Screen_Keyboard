@@ -1,0 +1,4 @@
+# Ignore the build directory
+/nbproject
+/build
+/test
