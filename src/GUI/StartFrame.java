@@ -18,7 +18,7 @@ public class StartFrame extends javax.swing.JFrame
     {
         initComponents();
         setFocusableWindowState(false);
-        this.setTitle("Custom Key Combinations");
+        this.setTitle("Key Combinations");
 
         setIcon();
         setPosition();
@@ -26,15 +26,13 @@ public class StartFrame extends javax.swing.JFrame
 
     public void setPosition()
     {
-        /*
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice defaultScreen = ge.getDefaultScreenDevice();
         Rectangle rect = defaultScreen.getDefaultConfiguration().getBounds();
-        int x = (int) rect.getMaxX() - this.getWidth() + 10;
-        int y = (int) rect.getMaxY() - this.getHeight() + 10;
+        int x = (int) rect.getMaxX() - this.getWidth() +10 ;
+        int y = (int) rect.getMaxY() - this.getHeight() - 50;
         System.out.println(y);
         this.setLocation(x, y);
-         */
     }
 
     public void btnKeyPress(String operationString)
@@ -44,24 +42,60 @@ public class StartFrame extends javax.swing.JFrame
         {
             Robot robot = new Robot();
 
-            if (operationString == "Copy")
+            if (operationString == "İşlem")
             {
-                robot.keyPress(KeyEvent.VK_CONTROL);
-                robot.keyPress(KeyEvent.VK_C);
+                robot.keyPress(KeyEvent.VK_F4);
+                robot.keyRelease(KeyEvent.VK_F4);
 
-                robot.keyRelease(KeyEvent.VK_CONTROL);
-                robot.keyRelease(KeyEvent.VK_C);
+                Thread.sleep(300);
 
-                output = "[ Ctrl + C ] Pressed.";
-            } else if (operationString == "Paste")
+                robot.keyPress(KeyEvent.VK_F5);
+                robot.keyRelease(KeyEvent.VK_F5);
+
+                Thread.sleep(300);
+
+                robot.keyPress(KeyEvent.VK_F11);
+                robot.keyRelease(KeyEvent.VK_F11);
+
+                output = "[ F4 + F5 + F11 ] Pressed.";
+            } else if (operationString == "Kayıt")
             {
-                robot.keyPress(KeyEvent.VK_CONTROL);
+                robot.keyPress(KeyEvent.VK_F5);
+                robot.keyRelease(KeyEvent.VK_F5);
+
+                Thread.sleep(300);
+
+                robot.keyPress(KeyEvent.VK_F10);
+                robot.keyRelease(KeyEvent.VK_F10);
+
+                output = "[ F5 + F10 ] Pressed.";
+            } else if (operationString == "Onay")
+            {
+                robot.keyPress(KeyEvent.VK_F5);
+                robot.keyRelease(KeyEvent.VK_F5);
+
+                Thread.sleep(300);
+
+                robot.keyPress(KeyEvent.VK_F2);
+                robot.keyRelease(KeyEvent.VK_F2);
+
+                Thread.sleep(300);
+
+                robot.keyPress(KeyEvent.VK_F12);
+                robot.keyRelease(KeyEvent.VK_F12);
+
+                output = "[ F5 + F2 + F12 ] Pressed.";
+            } else if (operationString == "Panel")
+            {
+                robot.keyPress(KeyEvent.VK_WINDOWS);
                 robot.keyPress(KeyEvent.VK_V);
+                
+                Thread.sleep(100);
 
-                robot.keyRelease(KeyEvent.VK_CONTROL);
+                robot.keyRelease(KeyEvent.VK_WINDOWS);
                 robot.keyRelease(KeyEvent.VK_V);
 
-                output = "[ Ctrl + V ] Pressed.";
+                output = "[ Win + V ] Pressed.";
             }
 
             labelInfo.setText(output);
@@ -97,23 +131,21 @@ public class StartFrame extends javax.swing.JFrame
         btnPaste = new javax.swing.JButton();
         btnPaste1 = new javax.swing.JButton();
         btnPaste2 = new javax.swing.JButton();
-        btnPaste4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
-        setBackground(new java.awt.Color(204, 255, 204));
         setFocusable(false);
 
-        labelInfo.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
+        labelInfo.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         labelInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelInfo.setText("... Thanks to Tiko ...");
         labelInfo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jPanel1.setFocusable(false);
-        jPanel1.setPreferredSize(new java.awt.Dimension(500, 40));
+        jPanel1.setPreferredSize(new java.awt.Dimension(383, 30));
 
-        btnCopy.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnCopy.setText("Copy");
+        btnCopy.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        btnCopy.setText("İşlem");
         btnCopy.setFocusable(false);
         btnCopy.setMaximumSize(new java.awt.Dimension(60, 25));
         btnCopy.setPreferredSize(new java.awt.Dimension(61, 25));
@@ -136,8 +168,8 @@ public class StartFrame extends javax.swing.JFrame
             }
         });
 
-        btnPaste.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnPaste.setText("Paste");
+        btnPaste.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        btnPaste.setText("Kayıt");
         btnPaste.setFocusable(false);
         btnPaste.addMouseListener(new java.awt.event.MouseAdapter()
         {
@@ -158,8 +190,8 @@ public class StartFrame extends javax.swing.JFrame
             }
         });
 
-        btnPaste1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnPaste1.setText("new");
+        btnPaste1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        btnPaste1.setText("Onay");
         btnPaste1.setFocusable(false);
         btnPaste1.addMouseListener(new java.awt.event.MouseAdapter()
         {
@@ -173,25 +205,10 @@ public class StartFrame extends javax.swing.JFrame
             }
         });
 
-        btnPaste2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnPaste2.setText("new");
+        btnPaste2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        btnPaste2.setText("Panel");
         btnPaste2.setFocusable(false);
         btnPaste2.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
-                genericBtnClick(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt)
-            {
-                btnMouseEnter(evt);
-            }
-        });
-
-        btnPaste4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnPaste4.setText("new");
-        btnPaste4.setFocusable(false);
-        btnPaste4.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
             {
@@ -212,12 +229,10 @@ public class StartFrame extends javax.swing.JFrame
                 .addComponent(btnCopy, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnPaste, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
-                .addComponent(btnPaste1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(btnPaste2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPaste4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPaste1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnPaste2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -226,8 +241,7 @@ public class StartFrame extends javax.swing.JFrame
                 .addComponent(btnPaste1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnPaste2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnCopy, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnPaste, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnPaste4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnPaste, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -235,20 +249,18 @@ public class StartFrame extends javax.swing.JFrame
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(labelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34))))
+                .addGap(35, 35, 35)
+                .addComponent(labelInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(35, 35, 35))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(7, 7, 7)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7))
@@ -277,12 +289,18 @@ public class StartFrame extends javax.swing.JFrame
         JButton btn = (JButton) obj;
         String btnText = btn.getText();
 
-        if (btnText.equalsIgnoreCase("Copy"))
+        if (btnText.equalsIgnoreCase("İşlem"))
         {
-            setInfotext("Ctrl + C");
-        } else if (btnText.equalsIgnoreCase("Paste"))
+            setInfotext("F4 + F5 + F11");
+        } else if (btnText.equalsIgnoreCase("Kayıt"))
         {
-            setInfotext("Ctrl + V");
+            setInfotext("F5 + F10");
+        } else if (btnText.equalsIgnoreCase("Onay"))
+        {
+            setInfotext("F5 + F2 + F12");
+        } else if (btnText.equalsIgnoreCase("Panel"))
+        {
+            setInfotext("Win + V");
         }
     }//GEN-LAST:event_btnMouseEnter
 
@@ -341,7 +359,6 @@ public class StartFrame extends javax.swing.JFrame
     private javax.swing.JButton btnPaste;
     private javax.swing.JButton btnPaste1;
     private javax.swing.JButton btnPaste2;
-    private javax.swing.JButton btnPaste4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelInfo;
     // End of variables declaration//GEN-END:variables
