@@ -18,7 +18,6 @@ public class StartFrame extends javax.swing.JFrame
     {
         initComponents();
         setFocusableWindowState(false);
-        this.setTitle("Key Combinations");
 
         setIcon();
         setPosition();
@@ -31,7 +30,6 @@ public class StartFrame extends javax.swing.JFrame
         Rectangle rect = defaultScreen.getDefaultConfiguration().getBounds();
         int x = (int) rect.getMaxX() - this.getWidth() +10 ;
         int y = (int) rect.getMaxY() - this.getHeight() - 50;
-        System.out.println(y);
         this.setLocation(x, y);
     }
 
@@ -113,8 +111,9 @@ public class StartFrame extends javax.swing.JFrame
 
     public void setIcon()
     {
-        ImageIcon img = new ImageIcon("./res/icon/favicon.png");
-        this.setIconImage(img.getImage());
+        //ImageIcon img = new ImageIcon("/icon/favicon.png");
+        //this.setIconImage(img.getImage());
+        setIconImage((new ImageIcon(getClass().getResource("/icon/favicon.png"))).getImage());
     }
 
     /**
@@ -133,6 +132,7 @@ public class StartFrame extends javax.swing.JFrame
         btnPaste2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Key Combinations");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
         setFocusable(false);
