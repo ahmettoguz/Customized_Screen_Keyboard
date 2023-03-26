@@ -5,7 +5,6 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-import static java.lang.Thread.sleep;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -18,9 +17,15 @@ public class StartFrame extends javax.swing.JFrame
     public StartFrame()
     {
         initComponents();
-        
+        setFocusableWindowState(false);
+        this.setTitle("Custom Key Combinations");
+
         setIcon();
-        
+        setPosition();
+    }
+
+    public void setPosition()
+    {
         /*
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice defaultScreen = ge.getDefaultScreenDevice();
@@ -39,13 +44,6 @@ public class StartFrame extends javax.swing.JFrame
         {
             Robot robot = new Robot();
 
-            robot.keyPress(KeyEvent.VK_ALT);
-            robot.keyPress(KeyEvent.VK_TAB);
-            robot.keyRelease(KeyEvent.VK_TAB);
-            robot.keyRelease(KeyEvent.VK_ALT);
-
-            sleep(100);
-
             if (operationString == "Copy")
             {
                 robot.keyPress(KeyEvent.VK_CONTROL);
@@ -55,8 +53,7 @@ public class StartFrame extends javax.swing.JFrame
                 robot.keyRelease(KeyEvent.VK_C);
 
                 output = "[ Ctrl + C ] Pressed.";
-            }
-            else if (operationString == "Paste")
+            } else if (operationString == "Paste")
             {
                 robot.keyPress(KeyEvent.VK_CONTROL);
                 robot.keyPress(KeyEvent.VK_V);
@@ -79,8 +76,9 @@ public class StartFrame extends javax.swing.JFrame
     {
         labelInfo.setText(msg);
     }
-    
-    public void setIcon(){
+
+    public void setIcon()
+    {
         ImageIcon img = new ImageIcon("./res/icon/favicon.png");
         this.setIconImage(img.getImage());
     }
@@ -104,12 +102,14 @@ public class StartFrame extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(204, 255, 204));
+        setFocusable(false);
 
         labelInfo.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
         labelInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelInfo.setText("... Thanks to Tiko ...");
         labelInfo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jPanel1.setFocusable(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 40));
 
         btnCopy.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -117,22 +117,15 @@ public class StartFrame extends javax.swing.JFrame
         btnCopy.setFocusable(false);
         btnCopy.setMaximumSize(new java.awt.Dimension(60, 25));
         btnCopy.setPreferredSize(new java.awt.Dimension(61, 25));
-        btnCopy.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
-        {
-            public void mouseMoved(java.awt.event.MouseEvent evt)
-            {
-                btnCopyMouseMoved(evt);
-            }
-        });
         btnCopy.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
             {
-                btnCopyMouseClicked(evt);
+                genericBtnClick(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt)
             {
-                btnCopyMouseEntered(evt);
+                btnMouseEnter(evt);
             }
         });
         btnCopy.addActionListener(new java.awt.event.ActionListener()
@@ -146,22 +139,15 @@ public class StartFrame extends javax.swing.JFrame
         btnPaste.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPaste.setText("Paste");
         btnPaste.setFocusable(false);
-        btnPaste.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
-        {
-            public void mouseMoved(java.awt.event.MouseEvent evt)
-            {
-                btnPasteMouseMoved(evt);
-            }
-        });
         btnPaste.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
             {
-                btnPasteMouseClicked(evt);
+                genericBtnClick(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt)
             {
-                btnPasteMouseEntered(evt);
+                btnMouseEnter(evt);
             }
         });
         btnPaste.addActionListener(new java.awt.event.ActionListener()
@@ -175,66 +161,45 @@ public class StartFrame extends javax.swing.JFrame
         btnPaste1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPaste1.setText("new");
         btnPaste1.setFocusable(false);
-        btnPaste1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
-        {
-            public void mouseMoved(java.awt.event.MouseEvent evt)
-            {
-                btnPaste1MouseMoved(evt);
-            }
-        });
         btnPaste1.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
             {
-                btnPaste1MouseClicked(evt);
+                genericBtnClick(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt)
             {
-                btnPaste1MouseEntered(evt);
+                btnMouseEnter(evt);
             }
         });
 
         btnPaste2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPaste2.setText("new");
         btnPaste2.setFocusable(false);
-        btnPaste2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
-        {
-            public void mouseMoved(java.awt.event.MouseEvent evt)
-            {
-                btnPaste2MouseMoved(evt);
-            }
-        });
         btnPaste2.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
             {
-                btnPaste2MouseClicked(evt);
+                genericBtnClick(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt)
             {
-                btnPaste2MouseEntered(evt);
+                btnMouseEnter(evt);
             }
         });
 
         btnPaste4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnPaste4.setText("new");
         btnPaste4.setFocusable(false);
-        btnPaste4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
-        {
-            public void mouseMoved(java.awt.event.MouseEvent evt)
-            {
-                btnPaste4MouseMoved(evt);
-            }
-        });
         btnPaste4.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
             {
-                btnPaste4MouseClicked(evt);
+                genericBtnClick(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt)
             {
-                btnPaste4MouseEntered(evt);
+                btnMouseEnter(evt);
             }
         });
 
@@ -269,14 +234,15 @@ public class StartFrame extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(labelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,96 +258,38 @@ public class StartFrame extends javax.swing.JFrame
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCopyMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnCopyMouseClicked
-    {//GEN-HEADEREND:event_btnCopyMouseClicked
+    private void genericBtnClick(java.awt.event.MouseEvent evt)//GEN-FIRST:event_genericBtnClick
+    {//GEN-HEADEREND:event_genericBtnClick
         Object obj = evt.getSource();
         JButton btn = (JButton) obj;
         String btnText = btn.getText();
         btnKeyPress(btnText);
-    }//GEN-LAST:event_btnCopyMouseClicked
-
-    private void btnCopyMouseMoved(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnCopyMouseMoved
-    {//GEN-HEADEREND:event_btnCopyMouseMoved
-
-    }//GEN-LAST:event_btnCopyMouseMoved
-
-    private void btnPasteMouseMoved(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnPasteMouseMoved
-    {//GEN-HEADEREND:event_btnPasteMouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPasteMouseMoved
-
-    private void btnPasteMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnPasteMouseClicked
-    {//GEN-HEADEREND:event_btnPasteMouseClicked
-        Object obj = evt.getSource();
-        JButton btn = (JButton) obj;
-        String btnText = btn.getText();
-        btnKeyPress(btnText);
-    }//GEN-LAST:event_btnPasteMouseClicked
+    }//GEN-LAST:event_genericBtnClick
 
     private void btnCopyActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCopyActionPerformed
     {//GEN-HEADEREND:event_btnCopyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCopyActionPerformed
 
-    private void btnCopyMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnCopyMouseEntered
-    {//GEN-HEADEREND:event_btnCopyMouseEntered
-        setInfotext("Ctrl + C");
-    }//GEN-LAST:event_btnCopyMouseEntered
+    private void btnMouseEnter(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnMouseEnter
+    {//GEN-HEADEREND:event_btnMouseEnter
+        Object obj = evt.getSource();
+        JButton btn = (JButton) obj;
+        String btnText = btn.getText();
 
-    private void btnPasteMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnPasteMouseEntered
-    {//GEN-HEADEREND:event_btnPasteMouseEntered
-        setInfotext("Ctrl + V");
-    }//GEN-LAST:event_btnPasteMouseEntered
-
-    private void btnPaste1MouseMoved(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnPaste1MouseMoved
-    {//GEN-HEADEREND:event_btnPaste1MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPaste1MouseMoved
-
-    private void btnPaste1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnPaste1MouseClicked
-    {//GEN-HEADEREND:event_btnPaste1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPaste1MouseClicked
-
-    private void btnPaste1MouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnPaste1MouseEntered
-    {//GEN-HEADEREND:event_btnPaste1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPaste1MouseEntered
-
-    private void btnPaste2MouseMoved(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnPaste2MouseMoved
-    {//GEN-HEADEREND:event_btnPaste2MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPaste2MouseMoved
-
-    private void btnPaste2MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnPaste2MouseClicked
-    {//GEN-HEADEREND:event_btnPaste2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPaste2MouseClicked
-
-    private void btnPaste2MouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnPaste2MouseEntered
-    {//GEN-HEADEREND:event_btnPaste2MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPaste2MouseEntered
+        if (btnText.equalsIgnoreCase("Copy"))
+        {
+            setInfotext("Ctrl + C");
+        } else if (btnText.equalsIgnoreCase("Paste"))
+        {
+            setInfotext("Ctrl + V");
+        }
+    }//GEN-LAST:event_btnMouseEnter
 
     private void btnPasteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnPasteActionPerformed
     {//GEN-HEADEREND:event_btnPasteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPasteActionPerformed
-
-    private void btnPaste4MouseMoved(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnPaste4MouseMoved
-    {//GEN-HEADEREND:event_btnPaste4MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPaste4MouseMoved
-
-    private void btnPaste4MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnPaste4MouseClicked
-    {//GEN-HEADEREND:event_btnPaste4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPaste4MouseClicked
-
-    private void btnPaste4MouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnPaste4MouseEntered
-    {//GEN-HEADEREND:event_btnPaste4MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPaste4MouseEntered
 
     /**
      * @param args the command line arguments
