@@ -28,8 +28,8 @@ public class StartFrame extends javax.swing.JFrame
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice defaultScreen = ge.getDefaultScreenDevice();
         Rectangle rect = defaultScreen.getDefaultConfiguration().getBounds();
-        int x = (int) rect.getMaxX() - this.getWidth() +10 ;
-        int y = (int) rect.getMaxY() - this.getHeight() - 50;
+        int x = 5;
+        int y = (int) rect.getMaxY() - this.getHeight() - 30;
         this.setLocation(x, y);
     }
 
@@ -43,54 +43,64 @@ public class StartFrame extends javax.swing.JFrame
             if (operationString == "İşlem")
             {
                 robot.keyPress(KeyEvent.VK_F4);
+                Thread.sleep(50);
                 robot.keyRelease(KeyEvent.VK_F4);
 
-                Thread.sleep(300);
+                Thread.sleep(500);
 
                 robot.keyPress(KeyEvent.VK_F5);
+                Thread.sleep(50);
                 robot.keyRelease(KeyEvent.VK_F5);
 
-                Thread.sleep(300);
+                Thread.sleep(500);
 
                 robot.keyPress(KeyEvent.VK_F11);
+                Thread.sleep(50);
                 robot.keyRelease(KeyEvent.VK_F11);
 
                 output = "[ F4 + F5 + F11 ] Pressed.";
             } else if (operationString == "Kayıt")
             {
                 robot.keyPress(KeyEvent.VK_F5);
+                Thread.sleep(50);
                 robot.keyRelease(KeyEvent.VK_F5);
 
-                Thread.sleep(300);
+                Thread.sleep(500);
 
                 robot.keyPress(KeyEvent.VK_F10);
+                Thread.sleep(50);
                 robot.keyRelease(KeyEvent.VK_F10);
 
                 output = "[ F5 + F10 ] Pressed.";
             } else if (operationString == "Onay")
             {
                 robot.keyPress(KeyEvent.VK_F5);
+                Thread.sleep(50);
                 robot.keyRelease(KeyEvent.VK_F5);
 
-                Thread.sleep(300);
+                Thread.sleep(500);
 
                 robot.keyPress(KeyEvent.VK_F2);
+                Thread.sleep(50);
                 robot.keyRelease(KeyEvent.VK_F2);
 
-                Thread.sleep(300);
+                Thread.sleep(500);
 
                 robot.keyPress(KeyEvent.VK_F12);
+                Thread.sleep(50);
                 robot.keyRelease(KeyEvent.VK_F12);
 
                 output = "[ F5 + F2 + F12 ] Pressed.";
             } else if (operationString == "Panel")
             {
                 robot.keyPress(KeyEvent.VK_WINDOWS);
+                Thread.sleep(50);
                 robot.keyPress(KeyEvent.VK_V);
-                
-                Thread.sleep(100);
+
+                Thread.sleep(50);
 
                 robot.keyRelease(KeyEvent.VK_WINDOWS);
+                Thread.sleep(50);
                 robot.keyRelease(KeyEvent.VK_V);
 
                 output = "[ Win + V ] Pressed.";

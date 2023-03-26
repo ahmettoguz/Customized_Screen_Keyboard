@@ -3,7 +3,7 @@
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
   <jar>C:\Users\lenovo\Desktop\temp\Customized_Screen_Keyboard\dist\Keys.jar</jar>
-  <outfile>C:\Users\lenovo\Desktop\temp\Customized_Screen_Keyboard\executable\keys.exe</outfile>
+  <outfile>C:\Users\lenovo\Desktop\temp\Customized_Screen_Keyboard\executable\keyboard.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
