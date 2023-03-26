@@ -3,7 +3,7 @@
 <br>
 
 <div align="center">
-    <img width=250 src="/res/icon/favicon.ico">
+    <img width=250 src="/src/icon/favicon.png">
 </div>
 
 <br/>
