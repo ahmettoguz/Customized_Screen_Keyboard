@@ -28,8 +28,8 @@ public class StartFrame extends javax.swing.JFrame
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice defaultScreen = ge.getDefaultScreenDevice();
         Rectangle rect = defaultScreen.getDefaultConfiguration().getBounds();
-        int x = 5;
-        int y = (int) rect.getMaxY() - this.getHeight() - 30;
+        int x = 15;
+        int y = (int) rect.getMaxY() / 4;
         this.setLocation(x, y);
     }
 
@@ -147,7 +147,7 @@ public class StartFrame extends javax.swing.JFrame
         setAutoRequestFocus(false);
         setFocusable(false);
 
-        labelInfo.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        labelInfo.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         labelInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelInfo.setText("... Thanks to Tiko ...");
         labelInfo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -158,6 +158,7 @@ public class StartFrame extends javax.swing.JFrame
         btnCopy.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnCopy.setText("İşlem");
         btnCopy.setFocusable(false);
+        btnCopy.setMargin(new java.awt.Insets(0, 0, 0, 0));
         btnCopy.setMaximumSize(new java.awt.Dimension(60, 25));
         btnCopy.setPreferredSize(new java.awt.Dimension(61, 25));
         btnCopy.addMouseListener(new java.awt.event.MouseAdapter()
@@ -182,6 +183,7 @@ public class StartFrame extends javax.swing.JFrame
         btnPaste.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnPaste.setText("Kayıt");
         btnPaste.setFocusable(false);
+        btnPaste.setMargin(new java.awt.Insets(0, 0, 0, 0));
         btnPaste.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
@@ -204,6 +206,7 @@ public class StartFrame extends javax.swing.JFrame
         btnPaste1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnPaste1.setText("Onay");
         btnPaste1.setFocusable(false);
+        btnPaste1.setMargin(new java.awt.Insets(0, 0, 0, 0));
         btnPaste1.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
@@ -219,6 +222,7 @@ public class StartFrame extends javax.swing.JFrame
         btnPaste2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnPaste2.setText("Panel");
         btnPaste2.setFocusable(false);
+        btnPaste2.setMargin(new java.awt.Insets(0, 0, 0, 0));
         btnPaste2.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
@@ -236,23 +240,23 @@ public class StartFrame extends javax.swing.JFrame
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnCopy, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPaste, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPaste1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPaste2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(3, 3, 3)
+                .addComponent(btnCopy, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(btnPaste, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(btnPaste1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(btnPaste2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                .addComponent(btnPaste1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnPaste2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnCopy, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnPaste, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnPaste1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPaste2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCopy, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPaste, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -260,21 +264,21 @@ public class StartFrame extends javax.swing.JFrame
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(labelInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(35, 35, 35))
+                .addGap(20, 20, 20)
+                .addComponent(labelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(labelInfo)
+                .addGap(3, 3, 3))
         );
 
         pack();
