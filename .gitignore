@@ -1,4 +1,4 @@
 # Ignore the build directory
-/nbproject
-/build
-/test
+/nbproject/
+/build/
+/test/
