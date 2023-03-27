@@ -45,6 +45,7 @@ This is a java desktop application with GUI frame. Basically you can perform key
 * Window stay always on top. No need to focus.
 * Small size of the screen is suitable for usage.
 * Window is not focusable. No need to alt tab anytime.
+* This project also include executable folder, which has jre (java run environment) in itself which is more than 200 mb but with the existence of that, keys.exe in that folder is runnable without any java installation. 
 
 
 <br/>
