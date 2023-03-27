@@ -42,8 +42,9 @@ This is a java desktop application with GUI frame. Basically you can perform key
 
 ## Features
 
-* Any key combinations can be assigned.
+* Window stay always on top. No need to focus.
 * Small size of the screen is suitable for usage.
+* Window is not focusable. No need to alt tab anytime.
 
 
 <br/>
